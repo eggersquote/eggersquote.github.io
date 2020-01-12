@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jan Eggers Quote generator</title>
+    <link rel="stylesheet" href="https://unpkg.com/papercss@1.4.0/dist/paper.min.css">
+<style>
+
+header {
+  padding: 1em;
+  background-color: #ffff80;
+  margin-top: 1em;
+  text-align: center;
+}
+
+.quote {
+  font-size: 3em;
+}
+
+.btn-large {
+    margin: 0.5em;
+  }
+
+#button:active {
+  box-shadow: 0 0 0 0;
+}
+
+.card {
+  text-align: center;
+  width: 45em;
+}
+
+.new-quote-button {
+  background-color: #8cff66;
+}
+
+.tweet-button {
+  background-color: #b3e0ff;
+}
+
+
+@media (max-width: 700px) {
+  header {
+    padding: 1em;
+    background-color: #ffff80;
+    margin-top: 1em;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 45px;
+  }
+
+  #newQuoteSection {
+    font-size: 35px;
+  }
+
+
+}
+
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row flex-top flex-center">
+          <header class="border shadow">
+          <h1>Jan Eggers Quote Generator</h1>
+          </header>
+        </div>
+         
+        <div class="row flex-center">
+         <button id="button" class="btn-large new-quote-button" onClick="getQuote()">New Quote</button>
+         <button id="button" class="btn-large tweet-button" onClick="tweetQuote()">Tweet Quote</button>
+        </div>
+         
+        <div class="row flex-center">
+         <main class="card">
+          <p class="quote card-body center" id="newQuoteSection">...</p>
+         </main>
+        </div>
+             
+        <div class="row flex-bottom flex-center">
+         <footer>
+          <p></p>
+         </footer>
+        </div>
+           
+    </div>
+
+<script>
+
+// Quotes
+
+    let quotes = [
+  "'I ran my best Triathlon half-drunk'",
+  "'Yeah yeah, it’s fine, some people only want to deliver 98% … However I guess I could learn a lot from them, as I only deliver 85%”'",
+  "'I hate people who group elements'",
+  "'But you know who I hate the most? People who add a text box on top of a box INSTEAD of using the text function of the box. It's the lazy solution, they do it instead of ensuring the space between the bullets and instead of just adjusting the margins'",
+  "'I’m happy we don’t have HR, it would force me to think about how to behave in an office environment'",
+  "'Ask someone competent next time. It’s not me. '",
+  "'I hate Think cell, it's fucking expensive and it's fucking bad'",
+  "'I hate Think cell, it's fucking expensive and it's fucking bad ... You need a group of coders, copy this and do it better and you'll make a lot of money - free business idea'",
+  "'Yeah I was supposed to go running for the past year. Now I'm fat and ugly'",
+  "'I would love to have an Italian accent. A German accent gives credit, but an Italian accent gives even more credit with the girls'",
+  "'So.. can you imagine going back to Italy and be a good housewife?'",
+  "*To guy he helped hire* - 'Ah, you're even smarter than I expected'"
+  ]
+  
+	let author = [
+	" - Jan Eggers"
+	]
+
+// Get random quote and display 
+
+function getQuote() {
+  var randomNumber = Math.floor(Math.random() * quotes.length);
+  document.getElementById('newQuoteSection').innerHTML = quotes[randomNumber]+author;
+}
+
+// Tweet quote on click
+
+function tweetQuote() {
+  var generatedQuote = document.getElementById('newQuoteSection').innerHTML;
+  var tweetUrl = ' https://twitter.com/intent/tweet?text=' + encodeURIComponent(generatedQuote);
+   window.open(tweetUrl);
+}
+
+</script>
+
+</body>
+
+</html>
