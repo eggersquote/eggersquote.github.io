@@ -1,5 +1,3 @@
 # eggersquote.github.io
  
-<html>
-<p> test </p>
-</html>
+ This is the landing page for the Eggers Quote generator - welcome
